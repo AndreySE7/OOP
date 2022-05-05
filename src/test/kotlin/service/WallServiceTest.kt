@@ -38,7 +38,7 @@ class WallServiceTest {
         posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, true, true, true,
             true, true, true, 1 ))
-        val update = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+        val update = Post(0, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, true, true, true,
             true, true, true, 1)
         val result = posts.update(update)
