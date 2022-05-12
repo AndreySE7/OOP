@@ -1,7 +1,7 @@
 package data
 
 data class Post(
-    val id: Int,
+    var id: Int,
     val owner_id: Int,
     val from_id: Int,
     val created_by: Int,
@@ -16,13 +16,16 @@ data class Post(
     val reposts: Any,
     val views: Any,
     val post_type: String,
+    val post_source: Any,
+    val geo: Any,
     val signer_id: Int,
+    val copy_history: Array<Post>?,
     val can_pin: Boolean,
     val can_delete: Boolean,
     val can_edit: Boolean,
     val is_pinned: Boolean,
     val marked_as_ads: Boolean,
     val is_favorite: Boolean,
-    val donut: Any,
     val postponed_id: Int
 )
+

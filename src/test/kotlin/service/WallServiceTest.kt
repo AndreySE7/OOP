@@ -11,10 +11,8 @@ class WallServiceTest {
     fun addTest() {
         val posts = WallService
         val result = posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, true, true, true,
-            true, true, true, 1 ))
-
-
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1 ))
 
         assertNotEquals(0, result.id)
     }
@@ -23,11 +21,11 @@ class WallServiceTest {
     fun updateTestTrue() {
         val posts = WallService
         posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, true, true, true,
-            true, true, true, 1 ))
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1 ))
         val update = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, true, true, true,
-            true, true, true, 1)
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1 )
         val result = posts.update(update)
         assertTrue(result)
     }
@@ -36,11 +34,11 @@ class WallServiceTest {
     fun updateTestFalse() {
         val posts = WallService
         posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, true, true, true,
-            true, true, true, 1 ))
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1 ))
         val update = Post(0, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, true, true, true,
-            true, true, true, 1)
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1 )
         val result = posts.update(update)
         assertFalse(result)
     }

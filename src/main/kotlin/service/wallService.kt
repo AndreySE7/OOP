@@ -4,14 +4,14 @@ import data.*
 
 object WallService {
 
-    private val posts = mutableListOf<Post>()
-    private var postId = 0
+    private var posts = emptyArray<Post>()
+        private var postId = 1
 
     fun add(post: Post): Post {
+        post.id = postId
         postId++
-        val updatedPost = post.copy(id = postId)
-        posts.add(updatedPost)
-        return updatedPost
+        posts += post
+        return posts.last()
     }
 
     fun update(post: Post): Boolean {
@@ -22,6 +22,11 @@ object WallService {
             }
         }
         return false
+    }
+
+    fun historyPost(post: Post): Post {
+        var copy_history = post.copy_history ?: post
+        return post
     }
 
 }
