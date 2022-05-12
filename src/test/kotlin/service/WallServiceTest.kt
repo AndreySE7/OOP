@@ -37,6 +37,7 @@ class WallServiceTest {
         assertFalse(result)
     }
 
+
     @Test
     fun historyPostTestNoHistory() {
         val posts = WallService
