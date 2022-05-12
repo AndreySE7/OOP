@@ -5,7 +5,7 @@ import data.*
 object WallService {
 
     private var posts = emptyArray<Post>()
-        private var postId = 1
+    private var postId = 1
 
     fun add(post: Post): Post {
         post.id = postId
@@ -24,9 +24,10 @@ object WallService {
         return false
     }
 
-    fun historyPost(post: Post): Post {
-        var copy_history = post.copy_history ?: post
-        return post
+    fun historyPost(post: Post?) {
+
+        println(post?.copy_history ?: "Нет истории")
+
     }
 
 }
