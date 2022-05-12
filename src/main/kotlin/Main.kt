@@ -9,6 +9,6 @@ fun main() {
         1, 1, "1", 1, true, 1, null, true,
         true, true, true, true, true, 1 ))
 
-    print(post1.id)
+    print(post1)
 
 }
