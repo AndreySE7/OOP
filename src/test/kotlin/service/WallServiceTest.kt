@@ -17,7 +17,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment))
 
-        assertEquals(0, result.id)
+        assertNotEquals(0, result.id)
     }
 
     @Test
@@ -27,7 +27,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment)
         val result = WallService.update(update)
-        assertTrue(result)
+        assertNotTrue(result)
     }
 
     @Test
@@ -37,7 +37,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment)
         val result = WallService.update(update)
-        assertFalse(result)
+        assertNotFalse(result)
     }
 
     @Test
@@ -47,7 +47,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment)
         val result = WallService.historyPost(historyPost)
-        assertEquals("Нет истории", result)
+        assertNotEquals("Нет истории", result)
     }
 
 }
