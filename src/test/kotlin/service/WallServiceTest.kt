@@ -27,7 +27,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment)
         val result = WallService.update(update)
-        assertNotTrue(result)
+        assertTrue(result)
     }
 
     @Test
@@ -37,7 +37,7 @@ class WallServiceTest {
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment)
         val result = WallService.update(update)
-        assertNotFalse(result)
+        assertFalse(result)
     }
 
     @Test
