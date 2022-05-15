@@ -4,48 +4,50 @@ import org.junit.Assert.*
 
 import data.service.service.WallService
 import data.*
+import data.service.data.*
 
 class WallServiceTest {
 
+    var arrayOfAttachment = emptyArray<Attachment>()
+
     @Test
     fun addTest() {
-        val posts = WallService
-        val result = posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
-            1, 1, "1", 1, true, 1, null, true,
-            true, true, true, true, true, 1 ))
 
-        assertNotEquals(0, result.id)
+        val result = WallService.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+            1, 1, "1", 1, true, 1, null, true,
+            true, true, true, true, true, 1, arrayOfAttachment))
+
+        assertEquals(0, result.id)
     }
 
     @Test
     fun updateTestTrue() {
-        val posts = WallService
+
         val update = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
-            true, true, true, true, true, 1 )
-        val result = posts.update(update)
+            true, true, true, true, true, 1, arrayOfAttachment)
+        val result = WallService.update(update)
         assertTrue(result)
     }
 
     @Test
     fun updateTestFalse() {
-        val posts = WallService
+
         val update = Post(0, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
-            true, true, true, true, true, 1 )
-        val result = posts.update(update)
+            true, true, true, true, true, 1, arrayOfAttachment)
+        val result = WallService.update(update)
         assertFalse(result)
     }
 
     @Test
     fun historyPostTestNoHistory() {
-        val posts = WallService
+
         val historyPost = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
-            true, true, true, true, true, 1 )
-        val result = posts.historyPost(historyPost)
-        assertNotEquals("Нет истории", result)
+            true, true, true, true, true, 1, arrayOfAttachment)
+        val result = WallService.historyPost(historyPost)
+        assertEquals("Нет истории", result)
     }
-
 
 }
