@@ -27,7 +27,7 @@ data class LinkAttachment(
 
 data class NoteAttachment(
     override val type: String = "note",
-    val note: PostAttachment = PostAttachment(5,1,1,1)
+    val note: PostAttachment = PostAttachment(5,2,1,1)
 ) : Attachment
 
 data class PageAttachment(

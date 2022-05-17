@@ -4,6 +4,7 @@ import data.*
 import data.service.service.WallService
 
 fun main() {
+
     var arrayOfAttachment = emptyArray<Attachment>()
 
     arrayOfAttachment += AudioAttachment("audio")

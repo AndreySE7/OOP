@@ -2,7 +2,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-import data.service.service.WallService
+import data.service.service.*
 import data.*
 
 class WallServiceTest {

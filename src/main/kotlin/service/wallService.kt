@@ -27,7 +27,6 @@ object WallService {
     fun historyPost(post: Post?) {
 
         println(post?.copy_history ?: "Нет истории")
-
     }
 
 }

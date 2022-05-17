@@ -29,4 +29,3 @@ data class Post(
     val postponed_id: Int,
     val attachment: Array<Attachment>
 )
-
