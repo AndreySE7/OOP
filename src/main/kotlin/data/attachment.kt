@@ -1,13 +1,36 @@
-package data.service.data
+package data
 
-sealed class Attachment
+interface Attachment{
+    val type: String
+    }
 
-data class AttachmentAudio(val audioName: String) : Attachment()
+data class PostAttachment (
+    val id: Int,
+    val album_id: Int,
+    val owner_id: Int,
+    val user_id: Int,
+)
+data class AudioAttachment(
+    override val type: String = "audio",
+    val audio: PostAttachment = PostAttachment(3,1,1,9)
+) : Attachment
 
-data class AttachmentDocument(val documentName: String) : Attachment()
+data class DocumentAttachment(
+    override val type: String = "document",
+    val link: PostAttachment = PostAttachment(2,10,1,1)
+) : Attachment
 
-data class AttachmentLink(val linkName: String) : Attachment()
+data class LinkAttachment(
+    override val type: String = "link",
+    val link: PostAttachment = PostAttachment(2,1,11,1)
+) : Attachment
 
-data class AttachmentNote(val noteName: String) : Attachment()
+data class NoteAttachment(
+    override val type: String = "note",
+    val note: PostAttachment = PostAttachment(5,1,1,1)
+) : Attachment
 
-data class AttachmentPage(val pageName: String) : Attachment()
+data class PageAttachment(
+    override val type: String = "page",
+    val page: PostAttachment = PostAttachment(3,1,1,1)
+) : Attachment

@@ -1,7 +1,5 @@
 package data
 
-import data.service.data.Attachment
-
 data class Post(
     var id: Int,
     val owner_id: Int,
