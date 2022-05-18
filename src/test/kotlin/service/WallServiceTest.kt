@@ -40,6 +40,7 @@ class WallServiceTest {
         assertFalse(result)
     }
 
+
     @Test
     fun historyPostTestNoHistory() {
 
