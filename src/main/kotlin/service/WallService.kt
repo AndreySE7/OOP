@@ -28,5 +28,4 @@ object WallService {
 
         println(post?.copy_history ?: "Нет истории")
     }
-
 }
