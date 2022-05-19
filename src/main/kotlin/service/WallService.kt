@@ -3,8 +3,8 @@ package data.service.service
 import data.*
 
 object WallService {
-
-    private var posts = emptyArray<Post>()
+    var posts = emptyArray<Post>()
+    var comments = emptyArray<Comment>()
     private var postId = 1
 
     fun add(post: Post): Post {
@@ -25,7 +25,17 @@ object WallService {
     }
 
     fun historyPost(post: Post?) {
-
         println(post?.copy_history ?: "Нет истории")
+    }
+
+    fun createComment(comment: Comment) {
+
+        for (post in posts) {
+            if (comment.postId == post.id) {
+                comments += comment
+            } else {
+                throw PostNotFoundException()
+            }
+        }
     }
 }
