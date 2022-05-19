@@ -8,14 +8,13 @@ import data.*
 
 class WallServiceTest {
 
-    private val posts = WallService
     private val arrayOfAttachment = emptyArray<Attachment>()
     private var comments = emptyArray<Comment>()
 
     @Test
     fun addTest() {
 
-        val result = posts.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+        val result = WallService.add(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment))
 
@@ -25,7 +24,7 @@ class WallServiceTest {
     @Test
     fun updateTestTrue() {
 
-        val result = posts.update(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+        val result = WallService.update(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment))
 
@@ -35,7 +34,7 @@ class WallServiceTest {
     @Test
     fun updateTestFalse() {
 
-        val result = posts.update(Post(0, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+        val result = WallService.update(Post(0, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment))
 
@@ -46,7 +45,7 @@ class WallServiceTest {
     @Test
     fun historyPostTestNoHistory() {
 
-        val result = posts.historyPost(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
+        val result = WallService.historyPost(Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,
             true, true, true, true, true, 1, arrayOfAttachment))
 
@@ -55,6 +54,7 @@ class WallServiceTest {
 
     @Test(expected = PostNotFoundException::class)
     fun shouldThrow() {
+
         val post = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,true, true, true, true, true, 1, arrayOfAttachment)
         WallService.add(post)
@@ -66,8 +66,9 @@ class WallServiceTest {
         }
     }
 
-    @Test
+    @Test(expected = PostNotFoundException::class)
     fun createComment() {
+
         val post = Post(1, 1, 1, 1, "22.05.2022", "1",1, 1, true ,1,1,1,
             1, 1, "1", 1, true, 1, null, true,true, true, true, true, true, 1, arrayOfAttachment)
         WallService.add(post)
@@ -77,6 +78,6 @@ class WallServiceTest {
         if (comment.postId == post.id) {
             comments += comment
         }
-    }
 
+    }
 }
