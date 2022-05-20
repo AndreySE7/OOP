@@ -5,11 +5,9 @@ import data.*
 object WallService {
     var posts = emptyArray<Post>()
     var comments = emptyArray<Comment>()
-    private var postId = 1
 
     fun add(post: Post): Post {
-        post.id = postId
-        postId++
+
         posts += post
         return posts.last()
     }
@@ -30,12 +28,14 @@ object WallService {
 
     fun createComment(comment: Comment) {
 
+        val count = comments.size
         for (post in posts) {
             if (comment.postId == post.id) {
                 comments += comment
-            } else {
-                throw PostNotFoundException()
             }
+        }
+        if (comments.size == count) {
+            throw PostNotFoundException()
         }
     }
 }
